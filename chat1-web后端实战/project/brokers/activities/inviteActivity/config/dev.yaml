@@ -1,0 +1,7 @@
+title: dev环境配置
+
+app:
+  secret: HS5820
+
+center:
+  host: localhost:6001

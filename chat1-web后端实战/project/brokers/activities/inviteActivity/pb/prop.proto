@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb;
+
+service PropService{
+    // 赠送道具给用户
+    rpc PresentProp(PresentPropRequest) returns (PresentPropResponse){}
+}
+
+message PresentPropRequest{
+    int32 user_id = 1;
+    PropBlock prop_block = 2;
+}
+message PresentPropResponse{
+    string message = 1;
+    int32 status = 2;
+}
+
+message PropBlock{
+    int32 prop_id =1;
+    int32 prop_num = 2;
+    int32 expire_in = 3; // 小时数，-1为无限期
+    string prop_title = 4;
+}
