@@ -1,0 +1,32 @@
+syntax = "proto3";
+package propPb;
+
+service ActivityService{
+    // 拉取用户进度
+    // 拉取时，不存在时新增，存在但过期时，更新至最新再拉取，存在切未过去，则拉取正常
+    rpc GetUserActivityProcess(GetUserActivityProcessRequest) returns (GetUserActivityProcessResponse){}
+    // 更新用户进度
+    rpc UpdateUserActivityProcess(UpdateUserActivityProcessRequest) returns (UpdateUserActivityProcessResponse) {}
+
+    // 获取活动配置
+    rpc GetActivityConfig(GetActivityConfigRequest) returns (GetActivityConfigResponse) {}
+    // 更新活动配置
+    rpc UpdateActivityConfig(UpdateActivityConfigRequest) returns (UpdateActivityConfigResponse) {}
+}
+
+message GetUserActivityProcessRequest{
+}
+message GetUserActivityProcessResponse{
+}
+message UpdateUserActivityProcessRequest {
+}
+message UpdateUserActivityProcessResponse {
+}
+message GetActivityConfigRequest{
+}
+message GetActivityConfigResponse{
+}
+message UpdateActivityConfigRequest{
+}
+message UpdateActivityConfigResponse{
+}

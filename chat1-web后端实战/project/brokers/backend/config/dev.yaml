@@ -1,0 +1,7 @@
+title: dev环境配置
+
+backend:
+  secret: DIKQOS
+
+center:
+  grpc_host: localhost:6001

@@ -2,7 +2,7 @@ package propService
 
 import (
 	"context"
-	"errorX"
+	"github.com/fwhezfwhez/errorx"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/common/dependent/db"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/module/props/propModel"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/module/props/propPb"
