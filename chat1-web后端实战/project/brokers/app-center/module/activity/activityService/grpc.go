@@ -41,6 +41,7 @@ func (as ActivityService) GetUserActivityProcess(ctx context.Context, request *a
 			return nil, errorx.Wrap(e)
 		}
 	}
+	d
 
 	if uap.HasExpire() {
 		tmp, e := uap.UpgradeToPgRedis(db.DB, conn, mode)
