@@ -61,12 +61,18 @@ func myGrpc() {
 
 func myTcp() {
 	srv := tcpx.NewTcpX(tcpx.ProtobufMarshaller{})
+	srv.HeartBeatMode(true, 10*time.Second)
 	srv.AddHandler(1, func(c *tcpx.Context) {
-		// OnLine
+		// HeartBeat
+		c.RecvHeartBeat()
 	})
-	srv.AddHandler(3, func(c *tcpx.Context) {
-		// Heartbeat
-	})
+	go func() {
+		fmt.Println("kcp listens on 7002")
+		_ = srv.ListenAndServe("kcp","7002")
+	}()
+
 	fmt.Println("tcp listens on 7001")
-	srv.ListenAndServeTCP("tcp", ":7001")
+	_ = srv.ListenAndServe("tcp", ":7001")
+
+
 }

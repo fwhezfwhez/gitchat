@@ -37,8 +37,9 @@ create table user_activity_process(
 );
 
 create table backend_user(
-  id serial primary key,
-  username varchar not null unique,
-  password_hash varchar not null,
-  roleId integer not null default 1 -- 1-普通用户，2-管理员
+  id serial primary key,              -- user_id
+  username varchar not null unique,   --用户名，唯一
+  password_hash varchar not null,     -- 加盐密码
+  role_id integer not null default 1, -- 1-普通用户，2-管理员
+  content_control jsonb               -- 存放了对应后台的权限控制配置
 )
