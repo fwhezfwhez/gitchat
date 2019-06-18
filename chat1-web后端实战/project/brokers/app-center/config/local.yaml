@@ -1,0 +1,7 @@
+title: local环境配置
+mode: local
+app:
+  secret: HS5820
+
+center:
+  host: localhost:6001

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package propPb;
+package activityPb;
 
 service ActivityService{
     // 拉取用户进度
@@ -15,18 +15,39 @@ service ActivityService{
 }
 
 message GetUserActivityProcessRequest{
+    int32 user_id = 1;
+    int32 activity_id = 2;
 }
 message GetUserActivityProcessResponse{
+    int32 id = 1;
+    int32 user_id = 2;
+    int32 activity_id = 3;
+    bytes joint_config = 4;
 }
 message UpdateUserActivityProcessRequest {
+    int32 id=1;
+    int32 user_id=2;
+    int32 activity_id = 3;
+    bytes joint_config = 4;
 }
 message UpdateUserActivityProcessResponse {
+    string message = 1;
 }
 message GetActivityConfigRequest{
+    int32 id = 1;
 }
 message GetActivityConfigResponse{
+    int32 id =1 ;
+    int32 state =2;
+    bytes award_config=3;
+    bytes open_config = 4;
 }
 message UpdateActivityConfigRequest{
+        int32 id =1 ;
+        int32 state =2;
+        bytes award_config=3;
+        bytes open_config = 4;
 }
 message UpdateActivityConfigResponse{
+    string message =1;
 }

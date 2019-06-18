@@ -32,6 +32,7 @@ create table user_activity_process(
    id serial primary key,
    user_id integer not null,              -- 用户id
    activity_id integer not null,          -- 活动id
+   date_time varchar not null,            -- 生成时间 '2019-06-11 18:11:11'
    joint_config jsonb,                    -- 游戏进度
    unique(user_id, activity_id)
 );

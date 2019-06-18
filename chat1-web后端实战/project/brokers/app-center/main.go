@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"gitchat/chat1-web后端实战/project/brokers/app-center/module/activity/activityPb"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/module/activity/activityRouter"
+	"gitchat/chat1-web后端实战/project/brokers/app-center/module/activity/activityService"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/module/props/propPb"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/module/props/propRouter"
 	"gitchat/chat1-web后端实战/project/brokers/app-center/module/props/propService"
@@ -54,6 +56,8 @@ func myGrpc() {
 	s := grpc.NewServer()
 	// prop
 	propPb.RegisterPropServiceServer(s, &propService.PropService{})
+	// activity
+	activityPb.RegisterActivityServiceServer(s, &activityService.ActivityService{})
 
 	fmt.Println("grpc listens on 6001")
 	s.Serve(lis)
